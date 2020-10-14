@@ -200,10 +200,10 @@ std::string TexWriter::BasicTexSectionContent(
   out << content;
   out << 
     "\n"
-    "%%% Local Variables:"
-    "%%% mode: latex"
-    "%%% TeX-master: \"main\""
-    "%%% End:"
+    "%%% Local Variables:\n"
+    "%%% mode: latex\n"
+    "%%% TeX-master: \"main\"\n"
+    "%%% End:\n"
     << std::endl;
   out.close();
   return "\\input{" + file_name + "}\n";
