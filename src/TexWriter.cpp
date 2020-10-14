@@ -17,8 +17,8 @@ TexWriter::TexWriter(
   system(("mkdir -p " + project_name).c_str());
   system(("mkdir -p " + project_name + "/figures").c_str());
   BasicMakefile();
-  //WithBasicPackages();
-  WithExtraPackages();
+  WithBasicPackages();
+  //WithExtraPackages();
   BasicTexMain();
 }
 
