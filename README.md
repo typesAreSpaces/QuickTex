@@ -2,5 +2,5 @@
 
 ## Requirements
 
-### rubber 
-### inotify-tools
+- rubber 
+- inotify-tools
