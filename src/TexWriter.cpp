@@ -40,7 +40,7 @@ void TexWriter::BasicMakefile() const {
     "\trm -rf $(OUTPUT)\n"
 
     "watch:\n"
-    "\t@while [ 1 ]; do; inotifywait $(SRC); sleep 0.01; make all; done\n"
+    "\t@while true; do inotifywait $(SRC); sleep 0.01; make all; done\n"
     << std::endl;
   return;
 }
