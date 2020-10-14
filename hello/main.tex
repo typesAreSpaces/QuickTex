@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{verbatim}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@verbatim}
+{\verbatim@font}
+{\verbatim@font\tiny}
+{}{}
+\makeatother
+\usepackage{float}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pdfpages}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{tikz}
+\usetikzlibrary{positioning,fit,arrows.meta,backgrounds}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{ebproof}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{listing}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{ceil}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.97,0.97,0.97}
+\lstdefinestyle{code-style}{
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=false,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2
+}
+
+\lstset{style=code-style}
+
+% Keywords command
+\providecommand{\keywords}[1]
+{
+  \small	
+  \textbf{	extit{Keywords---}} #1
+}\newcommand{\real}[0]{\mathbb{R}}
+\newcommand{\integer}[0]{\mathbb{Z}}
+\newcommand{\nat}[0]{\mathbb{N}}
+\newcommand{\grob}[0]{Gr\"obner }
+\newcommand{\bigO}[1]{$\mathcal{O}(#1)$}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\cev}[1]{\underline{#1}}
+%\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+\newcommand{\separationline}[0]{0.75}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[definition]
+
+\tikzset{
+  module/.style={%
+    draw, rounded corners,
+    minimum width=#1,
+    minimum height=7mm,
+    font=\sffamily
+  },
+  module/.default=2cm,
+  >=LaTeX
+}
+
+\begin{document}
+
+\title{QuickTex sample file}
+\author{Author's name}
+
+\maketitle
+
+\begin{abstract}
+The abstract text goes here.
+\end{abstract}
+
+\input{introduction}
+\input{conclusion}
+\end{document}
+

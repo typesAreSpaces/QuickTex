@@ -1,17 +1,29 @@
 #include "TexWriter.h"
 
 TexWriter::TexWriter(std::string const & project_name) :
-  project_name(project_name) 
+  TexWriter(
+      project_name, 
+      "Author's name", 
+      "QuickTex sample file"
+      ) {}
+
+TexWriter::TexWriter(
+    std::string const & project_name,
+    std::string const & author_name, 
+    std::string const & title) :
+  project_name(project_name), author_name(author_name),
+  title(title)
 {
   system(("mkdir -p " + project_name).c_str());
   system(("mkdir -p " + project_name + "/figures").c_str());
   BasicMakefile();
   //WithBasicPackages();
   WithExtraPackages();
-  BasicTexContent();
+  BasicTexMain();
 }
 
-void TexWriter::BasicMakefile(){
+
+void TexWriter::BasicMakefile() const {
   std::ofstream out((project_name + "/Makefile").c_str());
   out << 
     "SRC=$(wildcard *.tex)\n"
@@ -35,7 +47,7 @@ void TexWriter::BasicMakefile(){
   return;
 }
 
-void TexWriter::WithBasicPackages(){
+void TexWriter::WithBasicPackages() const {
   std::ofstream out((project_name + "/main.tex").c_str());
   out << 
     "\\documentclass{article}\n"
@@ -46,7 +58,7 @@ void TexWriter::WithBasicPackages(){
   return;
 }
 
-void TexWriter::WithExtraPackages(){
+void TexWriter::WithExtraPackages() const {
   std::ofstream out((project_name + "/main.tex").c_str());
   out << 
     "\\documentclass{article}\n"
@@ -149,31 +161,50 @@ void TexWriter::WithExtraPackages(){
   return;
 }
 
-void TexWriter::BasicTexContent(){
+void TexWriter::BasicTexMain() const {
   std::ofstream out((project_name + "/main.tex").c_str(), std::ios_base::app);
   out << 
     "\\begin{document}\n"
     "\n"
-    "\\title{Introduction to \\LaTeX{}}\n"
-    "\\author{Author's Name}\n"
+    "\\title{" + title + "}\n"
+    "\\author{" + author_name + "}\n"
     "\n"
     "\\maketitle\n"
     "\n"
     "\\begin{abstract}\n"
     "The abstract text goes here.\n"
-    "\\end{abstract}\n"
-    "\n"
-    "\\section{Introduction}\n"
-    "Here is the text of your introduction.\n"
-    "\n"
-    "\\subsection{Subsection Heading Here}\n"
-    "Write your subsection text here.\n"
-    "\n"
-    "\\section{Conclusion}\n"
-    "Write your conclusion here.\n"
-    "\n"
+    "\\end{abstract}\n" 
+    << std::endl;
+
+  out << BasicTexSectionContent("introduction", "Introduction",
+      "Here is the text of your introduction\n");
+
+  out << BasicTexSectionContent("conclusion", "Conclusion",
+      "Write your conclusion here\n");
+
+  out << 
     "\\end{document}\n"
     << std::endl;
   out.close();
   return;
+}
+
+std::string TexWriter::BasicTexSectionContent(
+    std::string const & file_name,
+    std::string const & section_name, 
+    std::string const & content
+    ) const {
+  std::ofstream out((project_name + "/" + file_name + ".tex").c_str(), std::ios_base::app);
+  out << 
+    "\\section{" + section_name + "}\n";
+  out << content;
+  out << 
+    "\n"
+    "%%% Local Variables:"
+    "%%% mode: latex"
+    "%%% TeX-master: \"main\""
+    "%%% End:"
+    << std::endl;
+  out.close();
+  return "\\input{" + file_name + "}\n";
 }
