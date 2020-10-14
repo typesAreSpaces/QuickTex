@@ -37,7 +37,7 @@ void TexWriter::BasicMakefile() const {
     "\trubber --pdf $(PAPER)\n"
 
     ".PHONY: clean\n"
-    "\tclean:\n"
+    "clean:\n"
     "\trubber --clean $(PAPER)\n"
     "\trm -rf $(OUTPUT)\n"
 
