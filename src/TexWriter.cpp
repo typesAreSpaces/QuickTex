@@ -30,8 +30,6 @@ void TexWriter::BasicMakefile() const {
     "PAPER=main.tex\n"
     "OUTPUT=$(PAPER:.tex=.pdf)\n"
     "FILES=$(wildcard ./*.tex)\n"
-    "SHELL=/bin/zsh\n"
-
     "all: $(FILES)\n"
     "\techo $(SRC)\n"
     "\trubber --pdf $(PAPER)\n"
