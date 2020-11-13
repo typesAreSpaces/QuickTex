@@ -9,11 +9,19 @@ class TexWriter {
   std::string const & project_name;
   std::string const & author_name;
   std::string const & title;
+  char option;
 
   void BasicMakefile() const;
-  void WithBasicPackages() const;
-  void WithExtraPackages() const;
-  void BasicTexMain() const;
+
+  void BasicFile(std::ostream &) const;
+  void TechnicalReport(std::ostream &) const;
+
+  void WithBasicPackages(std::ostream &) const;
+  void WithExtraPackages(std::ostream &) const;
+
+  void BasicFileMain(std::ostream &) const;
+  void TechnicalReportMain(std::ostream &) const;
+
   std::string BasicTexSectionContent(
       std::string const &, 
       std::string const &, 
@@ -24,7 +32,8 @@ class TexWriter {
   TexWriter(
       std::string const &, 
       std::string const &, 
-      std::string const &);
+      std::string const &,
+      char);
 };
 
 #endif
