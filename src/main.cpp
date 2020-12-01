@@ -14,6 +14,7 @@ int main(int argc, char * argv[]){
               "Jose Abel Castellanos Joo", 
               "Dissertation Seminar - Report \\# n", 
               'r');
+          return 0;
         }
       default:
         return 0;
