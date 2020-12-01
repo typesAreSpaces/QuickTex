@@ -16,6 +16,15 @@ int main(int argc, char * argv[]){
               'r');
           return 0;
         }
+      case 'p':
+        {
+          TexWriter quicktex(argv[1], 
+              "Jose Abel Castellanos Joo", 
+              "QuickTex Presentation", 
+              'p');
+          return 0;
+        }
+
       default:
         return 0;
     }
