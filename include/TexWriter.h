@@ -6,24 +6,17 @@
 #include <string>
 
 class TexWriter {
-  std::string const & project_name;
-  std::string const & author_name;
-  std::string const & title;
-  char option;
 
   void BasicMakefile() const;
 
-  void BasicFile(std::ostream &) const;
-  void TechnicalReport(std::ostream &) const;
-  void Presentation(std::ostream &) const;
+  virtual void HeaderSection(std::ostream &) const = 0;
+  virtual void PackageSection(std::ostream &) const = 0;
+  virtual void MainSection(std::ostream &) const = 0;
 
-  void WithBasicPackages(std::ostream &) const;
-  void WithExtraPackages(std::ostream &) const;
-  void WithPresentationPackages(std::ostream &) const;
-
-  void BasicFileMain(std::ostream &) const;
-  void TechnicalReportMain(std::ostream &) const;
-  void PresentationMain(std::ostream &) const;
+  protected:
+  std::string const & project_name;
+  std::string const & author_name;
+  std::string const & title;
 
   std::string BasicTexSectionContent(
       std::string const &, 
@@ -35,8 +28,7 @@ class TexWriter {
   TexWriter(
       std::string const &, 
       std::string const &, 
-      std::string const &,
-      char);
+      std::string const &);
 };
 
 #endif
