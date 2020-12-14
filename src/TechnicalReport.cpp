@@ -102,6 +102,7 @@ void TechnicalReport::PackageSection(std::ostream & out) const {
     "\\newcommand{\\eexists}[2]{\\exists #1 . \\text{ } #2}\n"
     "\\newcommand{\\ras}[1]{\\rightarrow_{#1}}\n"
     "\\newcommand{\\las}[1]{\\leftarrow_{#1}}\n"
+    "\\newcommand{\\another}[1]{#1^{'}}\n"
     "\\newcommand{\\extcong}[3]{#1 \\cong #2 \\text{ } #3}\n"
     "\\DeclarePairedDelimiter{\\ceil}{\\lceil}{\\rceil}\n"
     "\\DeclarePairedDelimiter{\\floor}{\\lfloor}{\\rfloor}\n"
