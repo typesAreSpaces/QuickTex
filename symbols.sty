@@ -1,0 +1,80 @@
+%% symbols.sty
+%%
+%% Author: Jose Abel Castellanos Joo
+%% 
+%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{symbols}[2020/01/05 Personal macros]
+
+\RequirePackage{amsthm}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.97,0.97,0.97}
+\lstdefinestyle{code-style}{
+  backgroundcolor=\color{backcolour},
+  commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,
+  breaklines=true,
+  captionpos=b,
+  keepspaces=false,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  tabsize=2
+}
+\lstset{style=code-style}
+
+% Keywords command
+\providecommand{\keywords}[1]
+{
+  \small	
+  \textbf{	extit{Keywords---}} #1
+}
+\newcommand{\RR}[0]{\mathbb{R}}
+\newcommand{\integer}[0]{\mathbb{Z}}
+\newcommand{\nat}[0]{\mathbb{N}}
+\newcommand{\natext}[1]{\mathbb{N}^#1}
+\newcommand{\join}[3]{#1 \downarrow_{#3} #2}
+\newcommand{\grob}[0]{Gr\"obner}
+\newcommand{\bigO}[1]{$\mathcal{O}(#1)$}
+\newcommand{\cev}[1]{\underline{#1}}
+\newcommand{\fall}[2]{\forall #1 . \text{ } #2}
+\newcommand{\eexists}[2]{\exists #1 . \text{ } #2}
+\newcommand{\ras}[1]{\rightarrow_{#1}}
+\newcommand{\las}[1]{\leftarrow_{#1}}
+\newcommand{\another}[1]{#1^{'}}
+\newcommand{\extcong}[3]{#1 \cong #2 \text{ } #3}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+
+\newcommand{\separationline}[0]{0.75}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{example}{Example}[definition]
+
+\tikzset{
+  module/.style={%
+    draw, rounded corners,
+    minimum width=#1,
+    minimum height=7mm,
+    font=\sffamily
+  },
+  module/.default=2cm,
+  >=LaTeX
+}
