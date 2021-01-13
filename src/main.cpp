@@ -1,6 +1,7 @@
 #include "Basic.h"
 #include "TechnicalReport.h"
 #include "Presentation.h"
+#include "Homework.h"
 
 int main(int argc, char * argv[]){
   if(argc == 2){
@@ -9,28 +10,30 @@ int main(int argc, char * argv[]){
   }
   if(argc == 3){
     switch(*argv[2]){
+      case 'b':
+          Basic(argv[1], 
+              "Jose Abel Castellanos Joo", 
+              "QuickTex Presentation");
+          return 0;
+      case 'h':
+          Homework(argv[1], 
+              "Jose Abel C. J.", 
+              "Homework\\ \\#n",
+              "Math 439", 
+              "Due date",
+              "Prof. Welbert Brown"
+              );
+          return 0;
+      case 'p':
+          Presentation(argv[1], 
+              "Jose Abel Castellanos Joo", 
+              "QuickTex Presentation");
+          return 0;
       case 'r':
-        {
-          TechnicalReport quicktex(argv[1], 
+          TechnicalReport(argv[1], 
               "Jose Abel Castellanos Joo", 
               "Dissertation Seminar - Report \\# n");
           return 0;
-        }
-      case 'p':
-        {
-          Presentation quicktex(argv[1], 
-              "Jose Abel Castellanos Joo", 
-              "QuickTex Presentation");
-          return 0;
-        }
-
-      case 'b':
-        {
-          Basic quicktex(argv[1], 
-              "Jose Abel Castellanos Joo", 
-              "QuickTex Presentation");
-          return 0;
-        }
       default:
         std::cerr << "Error: option not recognized" 
           "by quicktex" << std::endl;
