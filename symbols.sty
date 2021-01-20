@@ -1,16 +1,18 @@
 %% symbols.sty
 %%
 %% Author: Jose Abel Castellanos Joo
-%% 
-%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{symbols}[2020/01/05 Personal macros]
+\ProvidesPackage{symbols}[2020/01/20 Personal macros]
 
+\RequirePackage{xcolor}
 \RequirePackage{amsthm}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
+\RequirePackage{mathtools}
+\RequirePackage{tikz}
+\RequirePackage{listings}
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -42,20 +44,29 @@
   \small	
   \textbf{	extit{Keywords---}} #1
 }
+\newcommand{\NN}[0]{\mathbb{N}}
+\newcommand{\ZZ}[0]{\mathbb{Z}}
+\newcommand{\QQ}[0]{\mathbb{Q}}
 \newcommand{\RR}[0]{\mathbb{R}}
-\newcommand{\integer}[0]{\mathbb{Z}}
-\newcommand{\nat}[0]{\mathbb{N}}
-\newcommand{\natext}[1]{\mathbb{N}^#1}
-\newcommand{\join}[3]{#1 \downarrow_{#3} #2}
-\newcommand{\grob}[0]{Gr\"obner}
-\newcommand{\bigO}[1]{$\mathcal{O}(#1)$}
-\newcommand{\cev}[1]{\underline{#1}}
-\newcommand{\fall}[2]{\forall #1 . \text{ } #2}
-\newcommand{\eexists}[2]{\exists #1 . \text{ } #2}
-\newcommand{\ras}[1]{\rightarrow_{#1}}
-\newcommand{\las}[1]{\leftarrow_{#1}}
-\newcommand{\another}[1]{#1^{'}}
+\newcommand{\CC}[0]{\mathbb{C}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\polyring}[2]{#1[X_1, \dots, X_#2]}
 \newcommand{\extcong}[3]{#1 \cong #2 \text{ } #3}
+
+\newcommand{\bigO}[1]{$\mathcal{O}(#1)$}
+
+\newcommand{\grob}[0]{Gr\"obner}
+
+\newcommand{\join}[3]{#1 \downarrow_{#3} #2}
+\newcommand{\rrule}[1]{\rightarrow_{#1}}
+\newcommand{\lrule}[1]{\leftarrow_{#1}}
+
+\newcommand{\cev}[1]{\underline{#1}}
+\newcommand{\another}[1]{#1^{'}}
+
+\newcommand{\qall}[2]{\forall #1 . \text{ } #2}
+\newcommand{\qex}[2]{\exists #1 . \text{ } #2}
+
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 
@@ -67,14 +78,3 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{example}{Example}[definition]
-
-\tikzset{
-  module/.style={%
-    draw, rounded corners,
-    minimum width=#1,
-    minimum height=7mm,
-    font=\sffamily
-  },
-  module/.default=2cm,
-  >=LaTeX
-}
