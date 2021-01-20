@@ -26,13 +26,11 @@ void Homework::HeaderSection(std::ostream & out) const {
 void Homework::PackageSection(std::ostream & out) const {
   out <<
     "\\usepackage[utf8]{inputenc}\n"
-    "\\usepackage{amsmath}\n"
-    "\\usepackage{amsfonts}\n"
-    "\\usepackage{amssymb}\n"
     "\\usepackage{titlesec}\n"
     "\\usepackage[left=3cm,right=3cm,top=4cm,bottom=4cm]{geometry}\n"
     "\\usepackage{fancyhdr}\n"
     "\\usepackage{extramarks}\n"
+    "\\usepackage{symbols}\n"
     "\n"
     "%% Meta data\n"
     "\\newcommand{\\Name}{\\textbf{" + author_name + "}}\n"
