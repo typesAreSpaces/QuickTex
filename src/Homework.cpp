@@ -25,7 +25,6 @@ void Homework::HeaderSection(std::ostream & out) const {
 
 void Homework::PackageSection(std::ostream & out) const {
   out <<
-    "\\documentclass[12pt, letterpaper]{article}\n"
     "\\usepackage[utf8]{inputenc}\n"
     "\\usepackage{amsmath}\n"
     "\\usepackage{amsfonts}\n"
