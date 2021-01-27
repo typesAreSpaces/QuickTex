@@ -41,6 +41,7 @@ void TechnicalReport::PackageSection(std::ostream & out) const {
     "\\usepackage{float}\n"
     "\\usepackage{pdfpages}\n"
     "\\usepackage{rotating}\n"
+    "\\usepackage{tikz}\n"
     "\\usetikzlibrary{positioning,fit,arrows.meta,backgrounds}\n"
     "\\usepackage{hyperref}\n"
     "\\usepackage{algpseudocode}\n"
