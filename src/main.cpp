@@ -21,7 +21,7 @@ int main(int argc, char * argv[]){
               "Homework\\ \\#n",
               "Math 439", 
               "Due date",
-              "Prof. Welbert Brown"
+              "Prof. Billy Brown"
               );
           return 0;
       case 'p':
