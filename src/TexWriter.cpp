@@ -28,8 +28,7 @@ void TexWriter::BasicMakefile() const {
     "SRC=$(wildcard *.tex)\n"
     "PAPER=main.tex\n"
     "OUTPUT=$(PAPER:.tex=.pdf)\n"
-    "FILES=$(wildcard ./*.tex)\n"
-    "all: $(FILES)\n"
+    "all: $(SRC)\n"
     "\techo $(SRC)\n"
     "\trubber --pdf $(PAPER)\n"
 
