@@ -30,7 +30,7 @@ void TexWriter::BasicMakefile() const {
     "OUTPUT=$(PAPER:.tex=.pdf)\n"
     "all: $(SRC)\n"
     "\techo $(SRC)\n"
-    "\trubber --pdf $(PAPER)\n"
+    "\trubber --pdf $(PAPER) --synctex\n"
 
     ".PHONY: clean\n"
     "clean:\n"
