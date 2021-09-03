@@ -30,11 +30,14 @@ void TexWriter::BasicMakefile() const {
     "OUTPUT=$(PAPER:.tex=.pdf)\n"
     "all: $(SRC)\n"
     "\techo $(SRC)\n"
+    "\tpdflatex $(PAPER)\n"
+    "\tmakeindex -s main.ist -o main.gls main.glo\n"
     "\trubber --pdf $(PAPER) --synctex\n"
 
     ".PHONY: clean\n"
     "clean:\n"
     "\trubber --clean $(PAPER)\n"
+    "\trm -rf main.ist main.gls main.glo\n"
     "\trm -rf $(OUTPUT)\n"
 
     "watch:\n"
