@@ -64,3 +64,9 @@ std::string TexWriter::BasicTexSectionContent(
   out.close();
   return "\\input{" + file_name + "}\n";
 }
+
+void TexWriter::CreateKLDBFile() const {
+  std::ofstream out((project_name + "/kldb.tex").c_str(), std::ios_base::app);
+  out.close();
+  return;
+}

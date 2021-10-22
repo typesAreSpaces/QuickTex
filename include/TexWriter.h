@@ -23,6 +23,8 @@ class TexWriter {
       std::string const &, 
       std::string const &) const ;
 
+  void CreateKLDBFile() const;
+
   public:
   TexWriter(std::string const &);
   TexWriter(

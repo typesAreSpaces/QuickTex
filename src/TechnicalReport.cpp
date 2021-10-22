@@ -14,6 +14,7 @@ TechnicalReport::TechnicalReport(std::string const & project_name,
   HeaderSection(out);
   PackageSection(out);
   MainSection(out);
+  CreateKLDBFile();
   out.close();
 }
 
