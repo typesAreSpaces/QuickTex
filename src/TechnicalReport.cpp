@@ -26,6 +26,11 @@ void TechnicalReport::HeaderSection(std::ostream & out) const {
 
 void TechnicalReport::PackageSection(std::ostream & out) const {
   out << 
+    "\\usepackage{amsmath}\n"
+    "\\usepackage{amssymb}\n"
+    "\\usepackage{graphics}\n"
+    "\\usepackage{setspace}\n"
+    "\\usepackage{caption}\n"
     "\\usepackage{graphicx}\n"
     "\\usepackage[utf8]{inputenc}\n"
     "\\usepackage{cite}\n"
@@ -33,17 +38,9 @@ void TechnicalReport::PackageSection(std::ostream & out) const {
     "\\usepackage[english]{babel}\n"
     "\\usepackage{verbatim}\n"
     "\\usepackage{etoolbox}\n"
-    "\\makeatletter\n"
-    "\\patchcmd{\\@verbatim}\n"
-    "{\\verbatim@font}\n"
-    "{\\verbatim@font\\tiny}\n{}{}\n"
-    "\\makeatother\n"
     "\\usepackage{float}\n"
     "\\usepackage{pdfpages}\n"
     "\\usepackage{rotating}\n"
-    "\\usepackage{tikz}\n"
-    "\\usetikzlibrary{positioning,fit,arrows.meta,backgrounds}\n"
-    "\\usepackage{hyperref}\n"
     "\\usepackage{algpseudocode}\n"
     "\\usepackage{algorithm}\n"
     "\\usepackage{ebproof}\n"
@@ -51,12 +48,22 @@ void TechnicalReport::PackageSection(std::ostream & out) const {
     "\\usepackage{multirow}\n"
     "\\usepackage{listing}\n"
     "\\usepackage{symbols}\n"
+    "\\usepackage{makeidx}\n"
+    "\\usepackage[breaklinks,hidelinks]{hyperref} \n"
+    "\\usepackage[xcolor, hyperref, notion, makeidx]{knowledge}\n"
+    "\\usepackage{tikz}\n"
+    "\\usepackage{tikz-cd}\n"
+    "\\usepackage{glossaries}\n"
+    "\\usetikzlibrary{positioning,fit,arrows.meta,backgrounds,cd}\n"
     << std::endl;
   return;
 }
 
 void TechnicalReport::MainSection(std::ostream & out) const {
   out << 
+    "\\input{kldb}\n"
+    "\\makeindex\n"
+    "\\makeglossaries\n\n"
     "\\begin{document}\n"
     "\n"
     "\\title{" + title + "}\n"
@@ -64,9 +71,7 @@ void TechnicalReport::MainSection(std::ostream & out) const {
     "\n"
     "\\date{\\today}\n"
     "\\maketitle\n"
-    "\\tableofcontents\n"
-    "\n"
-    "\\IEEEpeerreviewmaketitle\n"
+    "%\\tableofcontents\n"
     "\n"
     "\\begin{abstract}\n"
     "The abstract text goes here.\n"
@@ -78,7 +83,9 @@ void TechnicalReport::MainSection(std::ostream & out) const {
   out << BasicTexSectionContent("conclusion", "Conclusion",
       "Write your conclusion here\n") << std::endl;
   out << "%\\bibliographystyle{plain}" << std::endl;
-  out << "%\\bibliography{./../../references}" << std::endl;
+  out << "%\\bibliography{./../../../references}" << std::endl;
+  out << "%\\printglossaries" << std::endl;
+  out << "%\\printindex" << std::endl;
 
   out << 
     "\\end{document}\n"
