@@ -29,6 +29,7 @@ void TechnicalReport::PackageSection(std::ostream & out) const {
   out << 
     "\\usepackage{amsmath}\n"
     "\\usepackage{amssymb}\n"
+    "\\usepackage{mathrsfs}\n"
     "\\usepackage{graphics}\n"
     "\\usepackage{setspace}\n"
     "\\usepackage{caption}\n"
