@@ -37,7 +37,8 @@ void TexWriter::BasicMakefile() const {
     ".PHONY: clean\n"
     "clean:\n"
     "\trubber --clean $(PAPER)\n"
-    "\trm -rf main.ist main.gls main.glo main.toc main.diagnose main.kaux\n"
+    "\trm -rf main.ist main.gls main.glo main.toc \n"
+    "\trm -rf main.diagnose main.kaux main.idx main.ilg main.out\n"
     "\trm -rf $(OUTPUT)\n"
 
     "watch:\n"
