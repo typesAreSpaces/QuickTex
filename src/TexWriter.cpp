@@ -39,7 +39,7 @@ void TexWriter::BasicMakefile() const {
     "\trubber --clean $(PAPER)\n"
     "\trm -rf main.ist main.gls main.glo main.toc \n"
     "\trm -rf main.diagnose main.kaux main.idx main.ilg main.out\n"
-    "\trm main.log main.synctex\\(busy\\)\t"
+    "\trm main.log main.synctex\\(busy\\)\n"
     "\trm -rf $(OUTPUT)\n"
 
     "watch:\n"
