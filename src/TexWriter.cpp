@@ -31,7 +31,7 @@ void TexWriter::BasicMakefile() const {
     "all: $(SRC)\n"
     "\techo $(SRC)\n"
     "\tpdflatex -synctex=1 $(PAPER)\n"
-    "\tmakeindex -s main.ist -o main.gls main.glo\n"
+    "\t#makeindex -s main.ist -o main.gls main.glo\n"
     "\trubber --pdf $(PAPER) --synctex\n"
 
     ".PHONY: clean\n"
