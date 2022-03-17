@@ -51,10 +51,6 @@ void TechnicalReport::MainSection(std::ostream & out) const {
     "\\end{abstract}\n" 
     << std::endl;
 
-  out << BasicTexSectionContent("introduction", "Introduction",
-      "Here is the text of your introduction\n") << std::endl;
-  out << BasicTexSectionContent("conclusion", "Conclusion",
-      "Write your conclusion here\n") << std::endl;
   out << "%\\bibliographystyle{plain}" << std::endl;
   out << "%\\bibliography{./../../../references}" << std::endl;
   out << "%\\printglossaries" << std::endl;
