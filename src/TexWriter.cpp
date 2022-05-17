@@ -40,6 +40,7 @@ void TexWriter::BasicMakefile() const {
     "\trm -rf main.ist main.gls main.glo main.toc \n"
     "\trm -rf main.diagnose main.kaux main.idx main.ilg main.out\n"
     "\trm -rf main.log main.synctex\\(busy\\)\n"
+    "\trm -rf main.fdb_latexmk main.fls\n"
     "\trm -rf $(OUTPUT)\n"
 
     "watch:\n"
