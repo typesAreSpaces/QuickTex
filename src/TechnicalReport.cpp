@@ -16,11 +16,13 @@ TechnicalReport::TechnicalReport(std::string const & project_name,
   MainSection(out);
   CreateKLDBFile();
   out.close();
+  BasicGitInit();
 }
 
 void TechnicalReport::HeaderSection(std::ostream & out) const {
   out << 
-    "\\documentclass[peerreview]{IEEEtran}\n"
+    //"\\documentclass[peerreview]{IEEEtran}\n"
+    "\\documentclass{article}\n"
     << std::endl;
   return;
 }

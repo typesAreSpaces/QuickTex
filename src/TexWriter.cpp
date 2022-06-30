@@ -20,6 +20,7 @@ TexWriter::TexWriter(
   system(("mkdir -p " + project_name).c_str());
   system(("mkdir -p " + project_name + "/figures").c_str());
   BasicMakefile();
+  BasicGitIgnore();
 }
 
 void TexWriter::BasicMakefile() const {
@@ -46,6 +47,22 @@ void TexWriter::BasicMakefile() const {
     "watch:\n"
     "\t@while true; do inotifywait $(SRC); sleep 0.01; make all; done\n"
     << std::endl;
+  out.close(); 
+  return;
+}
+
+
+void TexWriter::BasicGitInit() const {
+  system(("git init " + project_name).c_str());
+  system(("git -C ./" + project_name + "/ add -A").c_str());
+  system(("git -C ./" + project_name + "/ commit -m 'Initial commit'").c_str());
+}
+
+void TexWriter::BasicGitIgnore() const {
+  std::ofstream out((project_name + "/.gitignore").c_str());
+  out << "main.*" << std::endl;
+  out << "!main.tex" << std::endl;
+  out.close();
   return;
 }
 

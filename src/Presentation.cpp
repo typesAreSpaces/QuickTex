@@ -15,6 +15,7 @@ Presentation::Presentation(std::string const & project_name,
   PackageSection(out);
   MainSection(out);
   out.close();
+  BasicGitInit();
 }
 
 void Presentation::HeaderSection(std::ostream & out) const {

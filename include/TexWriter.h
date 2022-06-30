@@ -8,12 +8,16 @@
 class TexWriter {
 
   void BasicMakefile() const;
+  void BasicGitIgnore() const;
 
   virtual void HeaderSection(std::ostream &) const = 0;
   virtual void PackageSection(std::ostream &) const = 0;
   virtual void MainSection(std::ostream &) const = 0;
 
   protected:
+
+  void BasicGitInit() const;
+
   std::string const & project_name;
   std::string const & author_name;
   std::string const & title;

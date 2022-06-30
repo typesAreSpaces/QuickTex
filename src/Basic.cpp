@@ -19,6 +19,7 @@ Basic::Basic(std::string const & project_name,
   PackageSection(out);
   MainSection(out);
   out.close();
+  BasicGitInit();
 }
 
 void Basic::HeaderSection(std::ostream & out) const {

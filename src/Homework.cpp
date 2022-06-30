@@ -14,6 +14,7 @@ Homework::Homework(std::string const & project_name,
   PackageSection(out);
   MainSection(out);
   out.close();
+  BasicGitInit();
 }
 
 void Homework::HeaderSection(std::ostream & out) const {
