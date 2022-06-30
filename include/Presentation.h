@@ -13,7 +13,8 @@ class Presentation : public TexWriter {
   Presentation(
       std::string const &, 
       std::string const &, 
-      std::string const &);
+      std::string const &,
+      bool);
 };
 
 #endif

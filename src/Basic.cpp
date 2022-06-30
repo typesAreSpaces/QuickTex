@@ -4,22 +4,24 @@ Basic::Basic(std::string const & project_name) :
   Basic(
       project_name, 
       "Author's name",
-      "QuickTex sample file"
-      ) 
+      "QuickTex sample file", 
+      false) 
 {
 }
 
 Basic::Basic(std::string const & project_name,
     std::string const & author_name, 
-    std::string const & title
-    ) : TexWriter(project_name, author_name, title) 
+    std::string const & title, 
+    bool enable_git) 
+  : TexWriter(project_name, author_name, title) 
 {
   std::ofstream out((project_name + "/main.tex").c_str());
   HeaderSection(out);
   PackageSection(out);
   MainSection(out);
   out.close();
-  BasicGitInit();
+  if(enable_git)
+    BasicGitInit();
 }
 
 void Basic::HeaderSection(std::ostream & out) const {

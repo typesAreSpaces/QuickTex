@@ -13,7 +13,8 @@ class TechnicalReport : public TexWriter {
   TechnicalReport(
       std::string const &, 
       std::string const &, 
-      std::string const &);
+      std::string const &,
+      bool);
 };
 
 #endif

@@ -7,8 +7,9 @@ TechnicalReport::TechnicalReport(std::string const & project_name) :
 
 TechnicalReport::TechnicalReport(std::string const & project_name,
     std::string const & author_name, 
-    std::string const & title
-    ) : TexWriter(project_name, author_name, title) 
+    std::string const & title,
+    bool enable_git) 
+  : TexWriter(project_name, author_name, title) 
 {
   std::ofstream out((project_name + "/main.tex").c_str());
   HeaderSection(out);
@@ -16,7 +17,8 @@ TechnicalReport::TechnicalReport(std::string const & project_name,
   MainSection(out);
   CreateKLDBFile();
   out.close();
-  BasicGitInit();
+  if(enable_git)
+    BasicGitInit();
 }
 
 void TechnicalReport::HeaderSection(std::ostream & out) const {

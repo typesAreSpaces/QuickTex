@@ -13,7 +13,8 @@ class Basic : public TexWriter {
   Basic(
       std::string const &, 
       std::string const &, 
-      std::string const &);
+      std::string const &, 
+      bool);
 };
 
 #endif

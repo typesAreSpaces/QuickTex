@@ -5,8 +5,9 @@ Homework::Homework(std::string const & project_name,
     std::string const & title, 
     std::string const & subject,
     std::string const & due_date,
-    std::string const & prof_name
-    ) : TexWriter(project_name, author_name, title), 
+    std::string const & prof_name, 
+    bool enable_git) 
+  : TexWriter(project_name, author_name, title), 
   subject(subject), due_date(due_date), prof_name(prof_name)
 {
   std::ofstream out((project_name + "/main.tex").c_str());
@@ -14,7 +15,8 @@ Homework::Homework(std::string const & project_name,
   PackageSection(out);
   MainSection(out);
   out.close();
-  BasicGitInit();
+  if(enable_git)
+    BasicGitInit();
 }
 
 void Homework::HeaderSection(std::ostream & out) const {

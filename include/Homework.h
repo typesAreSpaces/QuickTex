@@ -19,7 +19,8 @@ class Homework : public TexWriter {
       std::string const &, 
       std::string const &, 
       std::string const &, 
-      std::string const &);
+      std::string const &, 
+      bool);
 };
 
 #endif
