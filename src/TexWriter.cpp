@@ -21,6 +21,7 @@ TexWriter::TexWriter(
   system(("mkdir -p " + project_name + "/figures").c_str());
   BasicMakefile();
   BasicGitIgnore();
+  BasicDirLocals();
 }
 
 void TexWriter::BasicMakefile() const {
@@ -62,6 +63,20 @@ void TexWriter::BasicGitIgnore() const {
   std::ofstream out((project_name + "/.gitignore").c_str());
   out << "main.*" << std::endl;
   out << "!main.tex" << std::endl;
+  out.close();
+  return;
+}
+
+void TexWriter::BasicDirLocals() const {
+
+  char curr_dir[256];
+  getcwd(curr_dir, 256);
+
+  std::ofstream out((project_name + "/.dir-locals.el").c_str());
+  out << "((latex-mode (TeX-master . \"";
+  out << curr_dir << "/";
+  out << project_name << "/";
+  out << "main.tex\")))" << std::endl;
   out.close();
   return;
 }
