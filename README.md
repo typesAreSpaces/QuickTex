@@ -5,7 +5,7 @@ setup to quickly start working on a TeX project.
 
 ## Requirements
 
-- rubber 
+- latexmk
 - inotify-tools
 
 ## Build instructions

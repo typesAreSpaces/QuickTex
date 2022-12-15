@@ -34,11 +34,11 @@ void TexWriter::BasicMakefile() const {
     "\techo $(SRC)\n"
     "\tpdflatex -synctex=1 $(PAPER)\n"
     "\t#makeindex -s main.ist -o main.gls main.glo\n"
-    "\trubber --pdf $(PAPER) --synctex\n"
+    "\tlatexmk -pdf -synctex=1 $(PAPER) \n"
 
     ".PHONY: clean\n"
     "clean:\n"
-    "\trubber --clean $(PAPER)\n"
+    "\tlatexmk -C\n"
     "\trm -rf main.ist main.gls main.glo main.toc \n"
     "\trm -rf main.diagnose main.kaux main.idx main.ilg main.out\n"
     "\trm -rf main.log main.synctex\\(busy\\)\n"
@@ -51,7 +51,6 @@ void TexWriter::BasicMakefile() const {
   out.close(); 
   return;
 }
-
 
 void TexWriter::BasicGitInit() const {
   system(("git init " + project_name).c_str());
