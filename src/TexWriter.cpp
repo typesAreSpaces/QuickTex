@@ -60,6 +60,8 @@ void TexWriter::BasicGitInit() const {
 
 void TexWriter::BasicGitIgnore() const {
   std::ofstream out((project_name + "/.gitignore").c_str());
+  out << "_region_.*" << std::endl;
+  out << "prv_main.*" << std::endl;
   out << "main.*" << std::endl;
   out << "!main.tex" << std::endl;
   out.close();
