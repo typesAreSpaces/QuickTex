@@ -41,6 +41,8 @@ void TexWriter::BasicMakefile() const {
     "\tlatexmk -C\n"
     "\trm -rf main.ist main.gls main.glo main.toc \n"
     "\trm -rf main.diagnose main.kaux main.idx main.ilg main.out\n"
+    "\trm -rf main.bbl\n"
+    "\trm -rf *.fls\n"
     "\trm -rf main.log main.synctex\\(busy\\)\n"
     "\trm -rf main.fdb_latexmk main.fls\n"
     "\trm -rf $(OUTPUT)\n"
@@ -62,6 +64,7 @@ void TexWriter::BasicGitIgnore() const {
   std::ofstream out((project_name + "/.gitignore").c_str());
   out << "_region_.*" << std::endl;
   out << "prv_main.*" << std::endl;
+  out << "*.fls" << std::endl;
   out << "main.*" << std::endl;
   out << "!main.tex" << std::endl;
   out.close();
