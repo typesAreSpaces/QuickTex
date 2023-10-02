@@ -32,6 +32,7 @@ void TechnicalReport::HeaderSection(std::ostream & out) const {
 void TechnicalReport::PackageSection(std::ostream & out) const {
   out << 
     "\\usepackage{symbols}\n"
+    "\\usepackage[style=numeric-comp]{biblatex}\n"
     << std::endl;
   return;
 }
@@ -39,8 +40,9 @@ void TechnicalReport::PackageSection(std::ostream & out) const {
 void TechnicalReport::MainSection(std::ostream & out) const {
   out << 
     "\\input{kldb}\n"
-    "\\makeindex\n"
-    "\\makeglossaries\n\n"
+    "%\\addbibresource{references}\n"
+    "%\\makeindex\n"
+    "%\\makeglossaries\n\n"
     "\\begin{document}\n"
     "\n"
     "\\title{" + title + "}\n"
@@ -56,8 +58,7 @@ void TechnicalReport::MainSection(std::ostream & out) const {
     "\\end{abstract}\n" 
     << std::endl;
 
-  out << "%\\bibliographystyle{plain}" << std::endl;
-  out << "%\\bibliography{./../../../references}" << std::endl;
+  out << "%\\printbibliography" << std::endl;
   out << "%\\printglossaries" << std::endl;
   out << "%\\printindex" << std::endl;
 

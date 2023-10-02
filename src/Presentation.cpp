@@ -30,13 +30,14 @@ void Presentation::HeaderSection(std::ostream & out) const {
 void Presentation::PackageSection(std::ostream & out) const {
   out << 
     "\\usepackage{presentation}\n"
-    "\n"
+    "\\usepackage[citestyle=alphabetic,bibstyle=authortitle]{biblatex}\n"
     << std::endl;
   return;
 }
 
 void Presentation::MainSection(std::ostream & out) const {
   out << 
+    "%\\addbibresource{references}\n"
     "\\begin{document}\n"
     "\n"
     "\\title{" + title + "}  \n"
@@ -72,11 +73,10 @@ void Presentation::MainSection(std::ostream & out) const {
     << std::endl;
 
   out << 
-    "\\begin{frame}[allowframebreaks]\n"
-    "  \\frametitle{References}\n"
-    "%  \\bibliographystyle{plain}\n"
-    "%  \\bibliography{references}\n"
-    "\\end{frame}\n"
+    "%\\begin{frame}[allowframebreaks]\n"
+    "%  \\frametitle{References}\n"
+    "%  \\printbibliography\n"
+    "%\\end{frame}\n"
     "\n"
     "\\end{document}\n"
     << std::endl;
