@@ -36,6 +36,10 @@ void TexWriter::BasicMakefile() const {
     "\t#makeindex -s main.ist -o main.gls main.glo\n"
     "\tlatexmk -pdf -synctex=1 $(PAPER) \n"
 
+    << project_name << ".pdf:\n"
+    "\tif [ ! -f main.pdf ]; then make all; fi;\n"
+    "\tcp main.pdf " << project_name << ".pdf\n"
+
     ".PHONY: clean\n"
     "clean:\n"
     "\tlatexmk -C\n"
@@ -67,6 +71,8 @@ void TexWriter::BasicGitIgnore() const {
   out << "*.fls" << std::endl;
   out << "main.*" << std::endl;
   out << "!main.tex" << std::endl;
+  out << "auto" << std::endl;
+  out << project_name << ".pdf" << std::endl;
   out.close();
   return;
 }
