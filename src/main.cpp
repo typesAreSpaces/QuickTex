@@ -3,7 +3,7 @@
 #include "Presentation.h"
 #include "Homework.h"
 
-int main(int argc, char * argv[]){
+int main(int argc, char * argv[]) try {
   bool enable_git = false;
   if(argc == 2){
     Basic quicktex(argv[1]);
@@ -44,5 +44,9 @@ int main(int argc, char * argv[]){
   }
   std::cerr << "Error: quicktex requires an argument" 
     "denoting the name of the project." << std::endl;
+  return 1;
+}
+catch (std::exception const & error) {
+  std::cerr << "Error: " << error.what() << std::endl;
   return 1;
 }

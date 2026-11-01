@@ -15,7 +15,7 @@ Basic::Basic(std::string const & project_name,
     bool enable_git) 
   : TexWriter(project_name, author_name, title) 
 {
-  std::ofstream out((project_name + "/main.tex").c_str());
+  auto out = OpenOutput("main.tex");
   HeaderSection(out);
   PackageSection(out);
   MainSection(out);

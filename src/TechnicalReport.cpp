@@ -1,7 +1,7 @@
 #include "TechnicalReport.h"
 
 TechnicalReport::TechnicalReport(std::string const & project_name) :
-  TexWriter(project_name) 
+  TechnicalReport(project_name, "Author's name", "QuickTex sample file", false)
 {
 }
 
@@ -11,7 +11,7 @@ TechnicalReport::TechnicalReport(std::string const & project_name,
     bool enable_git) 
   : TexWriter(project_name, author_name, title) 
 {
-  std::ofstream out((project_name + "/main.tex").c_str());
+  auto out = OpenOutput("main.tex");
   HeaderSection(out);
   PackageSection(out);
   MainSection(out);
@@ -31,7 +31,7 @@ void TechnicalReport::HeaderSection(std::ostream & out) const {
 
 void TechnicalReport::PackageSection(std::ostream & out) const {
   out << 
-    "\\usepackage{symbols}\n"
+    "\\usepackage{amsmath,amssymb,graphicx}\n"
     "\\usepackage[style=numeric-comp]{biblatex}\n"
     << std::endl;
   return;

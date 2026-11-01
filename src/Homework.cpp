@@ -10,7 +10,7 @@ Homework::Homework(std::string const & project_name,
   : TexWriter(project_name, author_name, title), 
   subject(subject), due_date(due_date), prof_name(prof_name)
 {
-  std::ofstream out((project_name + "/main.tex").c_str());
+  auto out = OpenOutput("main.tex");
   HeaderSection(out);
   PackageSection(out);
   MainSection(out);
@@ -36,7 +36,6 @@ void Homework::PackageSection(std::ostream & out) const {
     "\\usepackage[left=3cm,right=3cm,top=4cm,bottom=4cm]{geometry}\n"
     "\\usepackage{fancyhdr}\n"
     "\\usepackage{extramarks}\n"
-    "\\usepackage{symbols}\n"
     "\n"
     "%% Meta data\n"
     "\\newcommand{\\Name}{\\textbf{" + author_name + "}}\n"

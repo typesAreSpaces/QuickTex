@@ -1,7 +1,7 @@
 #include "Presentation.h"
 
 Presentation::Presentation(std::string const & project_name) :
-  TexWriter(project_name) 
+  Presentation(project_name, "Author's name", "QuickTex sample file", false)
 {
 }
 
@@ -11,7 +11,7 @@ Presentation::Presentation(std::string const & project_name,
     bool enable_git) 
   : TexWriter(project_name, author_name, title) 
 {
-  std::ofstream out((project_name + "/main.tex").c_str());
+  auto out = OpenOutput("main.tex");
   HeaderSection(out);
   PackageSection(out);
   MainSection(out);
@@ -29,7 +29,7 @@ void Presentation::HeaderSection(std::ostream & out) const {
 
 void Presentation::PackageSection(std::ostream & out) const {
   out << 
-    "\\usepackage{presentation}\n"
+    "\\usetheme{Madrid}\n"
     "\\usepackage[citestyle=alphabetic,bibstyle=authortitle]{biblatex}\n"
     << std::endl;
   return;

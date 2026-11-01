@@ -8,9 +8,9 @@ class Homework : public TexWriter {
   void PackageSection(std::ostream &) const;
   void MainSection(std::ostream &)    const;
 
-  std::string const & subject;
-  std::string const & due_date;
-  std::string const & prof_name;
+  std::string subject;
+  std::string due_date;
+  std::string prof_name;
 
   public:
   Homework(

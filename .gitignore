@@ -2,3 +2,4 @@
 .cache/*
 obj*
 bin*
+__pycache__/

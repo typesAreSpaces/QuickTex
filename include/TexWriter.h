@@ -20,9 +20,11 @@ class TexWriter {
 
   void BasicGitInit() const;
 
-  std::string const & project_name;
-  std::string const & author_name;
-  std::string const & title;
+  std::string project_name;
+  std::string author_name;
+  std::string title;
+
+  std::ofstream OpenOutput(std::string const &) const;
 
   std::string BasicTexSectionContent(
       std::string const &, 

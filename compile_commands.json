@@ -1,6 +1,6 @@
 [
  {
-  "directory": "/home/jose/Documents/GithubProjects/QuickTex",
+  "directory": "/Users/typesarespaces/Documents/Projects/dev/QuickTex",
   "arguments": [
    "g++",
    "-g",
@@ -15,7 +15,7 @@
   "file": "src/Basic.cpp"
  },
  {
-  "directory": "/home/jose/Documents/GithubProjects/QuickTex",
+  "directory": "/Users/typesarespaces/Documents/Projects/dev/QuickTex",
   "arguments": [
    "g++",
    "-g",
@@ -30,7 +30,7 @@
   "file": "src/Homework.cpp"
  },
  {
-  "directory": "/home/jose/Documents/GithubProjects/QuickTex",
+  "directory": "/Users/typesarespaces/Documents/Projects/dev/QuickTex",
   "arguments": [
    "g++",
    "-g",
@@ -45,7 +45,7 @@
   "file": "src/main.cpp"
  },
  {
-  "directory": "/home/jose/Documents/GithubProjects/QuickTex",
+  "directory": "/Users/typesarespaces/Documents/Projects/dev/QuickTex",
   "arguments": [
    "g++",
    "-g",
@@ -60,7 +60,7 @@
   "file": "src/Presentation.cpp"
  },
  {
-  "directory": "/home/jose/Documents/GithubProjects/QuickTex",
+  "directory": "/Users/typesarespaces/Documents/Projects/dev/QuickTex",
   "arguments": [
    "g++",
    "-g",
@@ -75,7 +75,7 @@
   "file": "src/TechnicalReport.cpp"
  },
  {
-  "directory": "/home/jose/Documents/GithubProjects/QuickTex",
+  "directory": "/Users/typesarespaces/Documents/Projects/dev/QuickTex",
   "arguments": [
    "g++",
    "-g",
