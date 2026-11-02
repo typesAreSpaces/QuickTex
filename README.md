@@ -53,5 +53,15 @@ ASCII letters, digits, `.`, `_`, and `-` replaced by `_` (for example,
 
 Execute `make watch` to use latexmk's continuous preview mode, which rebuilds
 when project dependencies change. Press Ctrl-C to stop it.
+
+In Emacs, use Texlab/lsp-latex with `latexmk` directly and build-on-save enabled.
+Both workflows compile `main.tex` to `main.pdf` in the project directory with
+SyncTeX enabled. Use `main.pdf` in Skim for forward search. The named PDF is a
+separate copy; refresh it with `make <project-name>.pdf` before sharing it.
+
+Before running `make watch`, disable `lsp-latex-build-on-save` in that project
+(e.g. `M-x set-variable`), so only one build process writes the output files.
+Re-enable it after stopping the watcher. Normal and watch builds both use
+`-file-line-error` and `-halt-on-error` for consistent error reporting.
  
 

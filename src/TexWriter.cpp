@@ -91,7 +91,7 @@ void TexWriter::BasicMakefile() const {
     "all: main.pdf\n\n"
     // Let latexmk track included TeX, bibliography, graphics and style files.
     "main.pdf: FORCE\n"
-    "\tlatexmk -pdf -synctex=1 -interaction=nonstopmode -halt-on-error main.tex\n\n"
+    "\tlatexmk -pdf -synctex=1 -interaction=nonstopmode -file-line-error -halt-on-error main.tex\n\n"
     "FORCE:\n\n";
   if (pdf != "main.pdf") {
     out << pdf << ": main.pdf\n"
@@ -105,7 +105,7 @@ void TexWriter::BasicMakefile() const {
   if (pdf != "main.pdf") out << "\trm -f ./" << pdf << "\n";
   out <<
     "\nwatch:\n"
-    "\tlatexmk -pdf -synctex=1 -interaction=nonstopmode -halt-on-error -pvc main.tex\n";
+    "\tlatexmk -pdf -synctex=1 -interaction=nonstopmode -file-line-error -halt-on-error -pvc main.tex\n";
   out.close();
 }
 
